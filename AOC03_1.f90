@@ -27,20 +27,12 @@
                 end if
                 sack(i) = ibset(sack(i),k)
             end do
-            spos = j; epos = epos*2
-            !do j=1,52
-            !    if (btest(sack(i),j)) write (*,'(A)',advance='no') alpha(j:j)
-            !end do
-            !write (*,*)
-            
-                    
+            spos = j; epos = epos*2                    
         end do ! Sack number
         
         ! See which items are in both sacks
         sack(1) = iand(sack(1),sack(2))
-        do i=1,52
-            if (btest(sack(1),i)) priority_sum = priority_sum + i
-        end do
+        priority_sum = priority_sum + trailz(sack(1))
     end do outer
     print *, priority_sum
         

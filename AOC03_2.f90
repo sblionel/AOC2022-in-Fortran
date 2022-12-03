@@ -31,14 +31,10 @@
         
         ! See which items are in all three sacks
         sack(1) = iall(sack)
-        do i=1,52
-            if (btest(sack(1),i)) then
-                priority_sum = priority_sum + i
-                print *, alpha(i:i)
-            end if
-            
-        end do
-    end do outer
+       
+        priority_sum = priority_sum + trailz(sack(1))
+        
+        end do outer
     print *, priority_sum
 
 
